@@ -8,16 +8,18 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_executable(app src/main.cpp)
 
-set(glbinding_DIR lib/glbinding)
-
-find_package(glbinding REQUIRED)
-find_package(glfw3 3.3.8 REQUIRED)
+find_package(glbinding PATHS lib/glbinding REQUIRED)
 find_package(OpenGL REQUIRED)
+find_package(Qt6 PATHS lib/Qt-6.6.0 REQUIRED COMPONENTS Core Gui OpenGL OpenGLWidgets Widgets)
 
 target_link_libraries(app
     glbinding::glbinding
-    glfw
     OpenGL::GL
+    Qt6::Core
+    Qt6::Gui
+    Qt6::OpenGL
+    Qt6::OpenGLWidgets
+    Qt6::Widgets
 )
 
 target_compile_options(app PRIVATE -Wall -Wextra -Wpedantic)
