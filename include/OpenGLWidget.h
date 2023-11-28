@@ -6,13 +6,17 @@
 
 // Main widget that handles drawing game graphics
 class OpenGLWidget : public QOpenGLWidget, protected QOpenGLFunctions {
-  public:
-    OpenGLWidget(QWidget *parent) : QOpenGLWidget(parent) {}
-    
+  private:
+    QOpenGLFunctions *f = QOpenGLContext::currentContext()->functions();
 
   protected:
     void initializeGL() override;
     void paintGL() override;
+
+  public:
+    OpenGLWidget(QWidget *parent) : QOpenGLWidget(parent) {}
+
+    QOpenGLFunctions* getFunctions() { return f; }
 };
 
 #endif

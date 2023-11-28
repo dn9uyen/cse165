@@ -7,11 +7,11 @@
 
 #include <iostream>
 
+#include "../include/Ball.h"
 #include "../include/OpenGLWidget.h"
+#include "../include/EntityManager.h"
 
-void initializeWindow() {
-
-}
+void initializeWindow() {}
 
 int main(int argc, char **argv) {
     QApplication app(argc, argv);
@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
     QSurfaceFormat format;
     format.setDepthBufferSize(24);
     format.setStencilBufferSize(8);
-    //format.setVersion(4, 1);
+    // format.setVersion(4, 1);
     format.setProfile(QSurfaceFormat::CoreProfile);
     QSurfaceFormat::setDefaultFormat(format);
 
@@ -29,8 +29,10 @@ int main(int argc, char **argv) {
     window.resize(600, 800);
     window.setWindowTitle("Title");
     window.show();
-
     
+    EntityManager entityManager;
+    entityManager.addEntity(new Ball);
+
     OpenGLWidget testWidget(&window);
     testWidget.move(0, 0);
     testWidget.resize(600, 600);
