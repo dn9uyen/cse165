@@ -11,13 +11,10 @@ file(GLOB_RECURSE SOURCE src/*.cpp)
 
 add_executable(app ${INCLUDE} ${SOURCE})
 
-
-#find_package(glbinding PATHS lib/glbinding REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(Qt6 PATHS lib/Qt-6.6.0 REQUIRED COMPONENTS Core Gui OpenGL OpenGLWidgets Widgets)
 
 target_link_libraries(app
-#    glbinding::glbinding
     OpenGL::GL
     Qt6::Core
     Qt6::Gui

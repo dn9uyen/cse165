@@ -2,9 +2,17 @@
 #define GAME_H
 
 #include "BaseEntity.h"
+#include "OpenGLWidget.h"
+#include "Level.h"
+
 class Game {
+private:
+    Level* currentLevel;
+
   public:
-    void update(BaseEntity* test, OpenGLWidget w);
+    Game();
+    void run();
+    void update(BaseEntity *test, OpenGLWidget w);
 };
 
 #endif

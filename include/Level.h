@@ -1,12 +1,15 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 
+#include "EntityManager.h"
+
 // Base class for all levels in the game
 class Level {
-    // Each class should have entity manager
-    
+  private:
+    EntityManager entityManager;
 
+  public:
+    void update();
 };
-
 
 #endif
