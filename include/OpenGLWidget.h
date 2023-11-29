@@ -9,7 +9,7 @@ class OpenGLWidget : public QOpenGLWidget, protected QOpenGLFunctions {
   private:
     QOpenGLFunctions *f = QOpenGLContext::currentContext()->functions();
 
-  protected:
+  public:
     void initializeGL() override;
     void paintGL() override;
 

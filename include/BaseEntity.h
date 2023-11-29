@@ -6,7 +6,7 @@
 #include <QtGui/qopenglfunctions.h>
 #include <vector>
 
-// Base class for all entities in the game. Also tracks all entities
+// Base class for all entities in the game
 class BaseEntity : protected QOpenGLFunctions {
   private:
     QVector2D pos;
@@ -16,12 +16,11 @@ class BaseEntity : protected QOpenGLFunctions {
     // Each entity needs to define how to draw itself
     virtual void draw(QOpenGLFunctions &f) = 0;
 
-    // Getters and setters
-    QVector2D getPos() { return pos; }
-    void setPos(QVector2D newPos) { pos = newPos; }
+    virtual QVector2D getPos();
+    virtual void setPos(QVector2D newPos);
 
-    QVector2D getVel() { return vel; }
-    void setVel(QVector2D newVel) { vel = newVel; }
+    virtual QVector2D getVel();
+    virtual void setVel(QVector2D newVel);
 };
 
 #endif

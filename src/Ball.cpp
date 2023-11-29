@@ -8,7 +8,7 @@
 #include "../include/OpenGLWidget.h"
 
 void Ball::draw(QOpenGLFunctions &f) {
-    constexpr int sides = 6;
+    constexpr int sides = 30; // Defines how many sides the circle has
     constexpr int numVerts = sides + 2; // 2 = 1 duplicate vertex + 1 center
     constexpr float angleOffset = M_PI / (float)sides;
     GLfloat verts[numVerts * 2]; // *2 because x and y coords per vertex
@@ -28,3 +28,7 @@ void Ball::draw(QOpenGLFunctions &f) {
     f.glDrawArrays(GL_TRIANGLE_FAN, 0, numVerts);
     glDisableClientState(GL_VERTEX_ARRAY);
 }
+
+float Ball::getRadius() { return radius; }
+
+void Ball::setRadius(float newRadius) { radius = newRadius; }
