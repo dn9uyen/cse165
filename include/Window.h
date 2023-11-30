@@ -1,12 +1,12 @@
-#ifndef WINDOW_MANAGER_H
-#define WINDOW_MANAGER_H
+#ifndef WINDOW_H
+#define WINDOW_H
 
 #include "OpenGLWidget.h"
 #include <QtWidgets/qwidget.h>
 
 class Window {
   private:
-    QWidget *mainWindow;
+    QWidget *mainWidget;
     OpenGLWidget *openGLWidget;
 
   public:

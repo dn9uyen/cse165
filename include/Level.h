@@ -1,15 +1,20 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 
-#include "EntityManager.h"
+#include "Ball.h"
+#include "BaseEntity.h"
+#include "PlayerBall.h"
+#include <vector>
 
 // Base class for all levels in the game
 class Level {
-  private:
-    EntityManager entityManager;
+  protected:
+    PlayerBall playerBall;
+    std::vector<BaseEntity *> entities;
 
   public:
-    void update();
+    virtual void update() = 0;
+    virtual void draw() = 0;
 };
 
 #endif

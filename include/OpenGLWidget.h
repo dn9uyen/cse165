@@ -1,22 +1,25 @@
-#ifndef CUSTOM_OPENGL_WIDGET
-#define CUSTOM_OPENGL_WIDGET
+#ifndef OPENGL_WIDGET
+#define OPENGL_WIDGET
 
 #include <QOpenGLFunctions>
+#include <QtCore/qtimer.h>
 #include <QtOpenGLWidgets/qopenglwidget.h>
+#include "Level.h"
 
-// Main widget that handles drawing game graphics
-class OpenGLWidget : public QOpenGLWidget, protected QOpenGLFunctions {
+// Manages game state and graphics
+class OpenGLWidget : public QOpenGLWidget, public QOpenGLFunctions {
   private:
-    QOpenGLFunctions *f = QOpenGLContext::currentContext()->functions();
-
   public:
-    void initializeGL() override;
-    void paintGL() override;
+    QTimer *timer;
 
-  public:
+    Level* currentLevel;
+
     OpenGLWidget(QWidget *parent) : QOpenGLWidget(parent) {}
 
-    QOpenGLFunctions* getFunctions() { return f; }
+    void initializeGL() override;
+    void paintGL() override;
+    void draw();
+    void updateGame();
 };
 
 #endif
