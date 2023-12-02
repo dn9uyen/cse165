@@ -3,6 +3,7 @@
 
 #include "Ball.h"
 #include "BaseEntity.h"
+#include "Bucket.h"
 #include "Cannon.h"
 #include "PlayerBall.h"
 #include <QEvent>
@@ -12,8 +13,10 @@
 // Base class for all levels in the game
 class Level {
   protected:
+    int* playerBallCount = new int(1);
     PlayerBall playerBall;
     Cannon cannon;
+    Basket basket;
     std::vector<BaseEntity *> entities;
 
   public:
@@ -39,6 +42,10 @@ class Level {
             break;
         }
     }
+
+    int* getPlayerBallCount() {
+        return playerBallCount;
+    };
 };
 
 #endif

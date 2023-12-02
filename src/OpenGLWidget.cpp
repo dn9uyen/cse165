@@ -3,6 +3,7 @@
 #include "../include/OpenGLWidget.h"
 #include "../include/Constants.h"
 #include "../include/Levels/Level1.h"
+#include "../include/Window.h"
 #include <QtCore/qobject.h>
 
 void OpenGLWidget::initializeGL() {
@@ -30,3 +31,5 @@ bool OpenGLWidget::eventFilter(QObject *obj, QEvent *event) {
     }
     return false;
 }
+
+int* OpenGLWidget::getBallCount() { return currentLevel->getPlayerBallCount(); };

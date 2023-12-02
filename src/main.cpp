@@ -15,25 +15,7 @@ int main(int argc, char **argv) {
     QApplication app(argc, argv);
 
     // Create window
-    Window window(600, 800, "Title");
-
-    //window.getOpenGLWidget()->timer->start(1000);
-
-    // EntityManager entityManager;
-    // entityManager.addEntity(new Ball(0.1, {0.5f, 0.2f, 0.3f}, {0.2f, 0.2}));
-    // entityManager.addEntity(new Ball(0.1, {0.1f, 0.5f, 0.4f}, {0.0f, 0.0}));
-    // entityManager.addEntity(new Ball(0.1, {0.3f, 0.4f, 0.7f}, {-0.2f,
-    // -0.2}));
-
-    // QTimer timer;
-    // QObject::connect(&timer, &QTimer::timeout, &mainWidget,
-    //                  [&] { game.update(entityManager.getEntities()[0]); });
-    // timer.start(1000);
-
-    // OpenGLWidget testWidget(&mainWidget);
-    // testWidget.move(0, 0);
-    // testWidget.resize(600, 600);
-    // testWidget.show();
+    Window window(600, 700, "Title");
 
     return app.exec();
 }

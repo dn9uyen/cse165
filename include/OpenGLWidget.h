@@ -21,6 +21,8 @@ class OpenGLWidget : public QOpenGLWidget, public QOpenGLFunctions {
     void paintGL() override;
     void draw();
     void updateGame();
+    int* getBallCount();
+    Level* getCurrentLevel();
 
     bool eventFilter(QObject* obj, QEvent *event) override;
 };
