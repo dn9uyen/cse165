@@ -7,7 +7,7 @@
 
 // Base class for all entities in the game
 class BaseEntity {
-  private:
+  protected:
     QVector3D color;
     QVector2D pos;
     QVector2D vel;

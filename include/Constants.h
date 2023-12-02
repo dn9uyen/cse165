@@ -1,7 +1,8 @@
-#ifndef TIME_STEP_H
-#define TIME_STEP_H
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
 
-#define timeStep 1000.0f/60.0f
-#define gravity -0.00002f
+#define timeStep 1000.0f/120.0f
+#define gravity -0.000005f
+#define restitution 0.9f
 
 #endif

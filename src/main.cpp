@@ -15,7 +15,7 @@ int main(int argc, char **argv) {
     QApplication app(argc, argv);
 
     // Create window
-    Window window(600, 600, "Title");
+    Window window(600, 800, "Title");
 
     //window.getOpenGLWidget()->timer->start(1000);
 

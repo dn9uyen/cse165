@@ -10,7 +10,7 @@ Window::Window(int width, int height, const char *title) {
     // Has to be called after showing main window or seg faults
     openGLWidget = new OpenGLWidget(mainWidget);
     openGLWidget->move(0, 0);
-    openGLWidget->resize(width, height);
+    openGLWidget->resize(width, width);
     openGLWidget->show();
 
 

@@ -4,6 +4,7 @@
 #include <QOpenGLFunctions>
 #include <QtCore/qtimer.h>
 #include <QtOpenGLWidgets/qopenglwidget.h>
+#include <QEvent>
 #include "Level.h"
 
 // Manages game state and graphics
@@ -20,6 +21,8 @@ class OpenGLWidget : public QOpenGLWidget, public QOpenGLFunctions {
     void paintGL() override;
     void draw();
     void updateGame();
+
+    bool eventFilter(QObject* obj, QEvent *event) override;
 };
 
 #endif

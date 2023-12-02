@@ -1,11 +1,13 @@
 #define GL_SILENCE_DEPRECATION
 
 #include "../include/OpenGLWidget.h"
-#include "../include/Levels/Level1.h"
 #include "../include/Constants.h"
+#include "../include/Levels/Level1.h"
 #include <QtCore/qobject.h>
 
 void OpenGLWidget::initializeGL() {
+    this->installEventFilter(this);
+    grabKeyboard();
     currentLevel = new Level1;
 
     initializeOpenGLFunctions();
@@ -20,4 +22,11 @@ void OpenGLWidget::paintGL() { currentLevel->draw(); }
 void OpenGLWidget::updateGame() {
     currentLevel->update();
     update();
+}
+
+bool OpenGLWidget::eventFilter(QObject *obj, QEvent *event) {
+    if (event->type() == QEvent::KeyPress) {
+        currentLevel->processEvent(event);
+    }
+    return false;
 }
