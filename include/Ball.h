@@ -7,20 +7,22 @@ class Ball : public BaseEntity {
   protected:
     float radius;
     QVector3D color;
+    bool hitByPlayerBall;
 
   public:
-    Ball(float rad = 0.05, QVector3D col = {0.0f, 0.0f, 0.0f},
-         QVector2D position = {0.0f, 0.0f}, QVector2D velocity = {0.0f, 0.0f}) {
+    Ball(float rad = 0.05, QVector3D col = {0.0f, 0.0f, 0.0f}, QVector2D position = {0.0f, 0.0f}, QVector2D velocity = {0.0f, 0.0f}) {
         radius = rad;
         color = col;
         setPos(position);
         setVel(velocity);
+        hitByPlayerBall = false;
     }
 
     void draw();
     float getRadius();
     void setRadius(float newRadius);
     void setColor(QVector3D newCol);
+    void setHit(bool hit);
 };
 
 #endif

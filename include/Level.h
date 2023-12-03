@@ -13,39 +13,20 @@
 // Base class for all levels in the game
 class Level {
   protected:
-    int* playerBallCount = new int(1);
+    int playerBallCount;
     PlayerBall playerBall;
     Cannon cannon;
-    Basket basket;
+    Bucket bucket;
     std::vector<BaseEntity *> entities;
 
   public:
-    virtual void update() = 0;
-    virtual void draw() = 0;
-
-    void processEvent(QEvent *event) {
-        qDebug() << event->type();
-        switch (((QKeyEvent *)event)->key()) {
-        case Qt::Key_Right:
-            cannon.rotate("right");
-            qDebug() << "right";
-            break;
-        case Qt::Key_Left:
-            cannon.rotate("left");
-            qDebug() << "left";
-            break;
-        case Qt::Key_Down:
-            if (playerBall.inCannon) {
-                playerBall.launch();
-                qDebug() << "launch";
-            }
-            break;
-        }
+    Level() {
+        playerBallCount = 1;
     }
 
-    int* getPlayerBallCount() {
-        return playerBallCount;
-    };
+    void update();
+    void draw();
+    void processEvent(QEvent *event);
+    int getPlayerBallCount();
 };
-
 #endif

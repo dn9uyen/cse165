@@ -6,7 +6,7 @@
 #include <QTimer>
 #include <QtWidgets/qwidget.h>
 
-class Window : QWidget {
+class Window : public QWidget {
   private:
     QTimer *timer;
     OpenGLWidget *openGLWidget;

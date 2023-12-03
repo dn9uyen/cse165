@@ -1,3 +1,4 @@
+#include <QtCore/qdebug.h>
 #define GL_SILENCE_DEPRECATION
 
 #include "../include/OpenGLWidget.h"
@@ -32,4 +33,4 @@ bool OpenGLWidget::eventFilter(QObject *obj, QEvent *event) {
     return false;
 }
 
-int* OpenGLWidget::getBallCount() { return currentLevel->getPlayerBallCount(); };
+Level* OpenGLWidget::getCurrentLevel() {return currentLevel;}

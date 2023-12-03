@@ -35,3 +35,5 @@ void Ball::setRadius(float newRadius) { radius = newRadius; }
 void Ball::setColor(QVector3D newCol) {
     color = newCol;
 }
+
+void Ball::setHit(bool hit) { hitByPlayerBall = hit; };

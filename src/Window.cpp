@@ -1,4 +1,5 @@
 #include "../include/Window.h"
+#include <QtCore/qdebug.h>
 #include <QtCore/qobject.h>
 #include <string>
 
@@ -24,13 +25,13 @@ Window::Window(int width, int height, const char *title) : QWidget(0) {
     score->show();
 
     timer = new QTimer(this);
-    QObject::connect(timer, &QTimer::timeout, this, [this] { updateLabels(); });
+    QObject::connect(timer, &QTimer::timeout, this, &Window::updateLabels);
     timer->start(100);
 }
 
 void Window::updateLabels() {
     // Update ball count
-    std::string str = "Balls: " + std::to_string(*openGLWidget->getBallCount());
+    std::string str = "Balls: " + std::to_string(openGLWidget->getCurrentLevel()->getPlayerBallCount());
     ballCount->setText(str.c_str());
 
     // Update score

@@ -1,19 +1,19 @@
 #ifndef OPENGL_WIDGET
 #define OPENGL_WIDGET
 
+#include "Level.h"
+#include <QEvent>
 #include <QOpenGLFunctions>
 #include <QtCore/qtimer.h>
 #include <QtOpenGLWidgets/qopenglwidget.h>
-#include <QEvent>
-#include "Level.h"
 
 // Manages game state and graphics
 class OpenGLWidget : public QOpenGLWidget, public QOpenGLFunctions {
   private:
+    Level *currentLevel;
+
   public:
     QTimer *timer;
-
-    Level* currentLevel;
 
     OpenGLWidget(QWidget *parent) : QOpenGLWidget(parent) {}
 
@@ -21,10 +21,9 @@ class OpenGLWidget : public QOpenGLWidget, public QOpenGLFunctions {
     void paintGL() override;
     void draw();
     void updateGame();
-    int* getBallCount();
-    Level* getCurrentLevel();
+    Level *getCurrentLevel();
 
-    bool eventFilter(QObject* obj, QEvent *event) override;
+    bool eventFilter(QObject *obj, QEvent *event) override;
 };
 
 #endif
