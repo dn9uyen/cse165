@@ -13,7 +13,7 @@ class BaseEntity {
     QVector2D vel;
 
   public:
-    ~BaseEntity() {}
+    virtual ~BaseEntity() {};
 
     virtual void draw() = 0;
     void update();

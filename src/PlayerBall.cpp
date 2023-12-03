@@ -29,6 +29,11 @@ void PlayerBall::doPhysics(std::vector<BaseEntity *> entities) {
             QVector2D pushBack = dist.normalized() * overlap / 2; // Get direction and amount to push back
             setPos(getPos() + pushBack);
 
+            // Check if moving away so bounce isn't calculated twice
+            if (QVector2D::dotProduct(getVel().normalized(), pushBack) > 0.0f) {
+                continue;
+            }
+
             // Calculate post collision velocity
             QVector2D unitNormalVec = (getPos() - entity->getPos()).normalized();
             QVector2D unitTangentVec = {-unitNormalVec.y(), unitNormalVec.x()};
@@ -45,17 +50,17 @@ void PlayerBall::doPhysics(std::vector<BaseEntity *> entities) {
     if (getPos().y() < -1.0f) {
         setVel({getVel().x(), getVel().y() * -restitution});
         setPos({getPos().x(), -1.0f});
-    } else if (getPos().y() > 1.0f) {
+    } else if (getPos().y() + radius > 1.0f) {
         setVel({getVel().x(), getVel().y() * -restitution});
-        setPos({getPos().x(), 1.0f});
+        setPos({getPos().x(), 1.0f - radius});
     }
 
     // Check x bounce
-    if (getPos().x() < -1.0f) {
-        setPos({-1.0f, getPos().y()});
+    if (getPos().x() - radius < -1.0f) {
+        setPos({-1.0f + radius, getPos().y()});
         setVel({getVel().x() * -restitution, getVel().y()});
-    } else if (getPos().x() > 1.0f) {
-        setPos({1.0f, getPos().y()});
+    } else if (getPos().x() + radius > 1.0f) {
+        setPos({1.0f - radius, getPos().y()});
         setVel({getVel().x() * -restitution, getVel().y()});
     }
 

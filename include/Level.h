@@ -28,6 +28,12 @@ class Level {
         status = 0;
     }
 
+    ~Level() {
+        for (BaseEntity* entity : entities) {
+            delete entity;
+        }
+    }
+
     void update();
     void draw();
     void processEvent(QEvent *event);

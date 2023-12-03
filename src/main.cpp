@@ -15,7 +15,7 @@ int main(int argc, char **argv) {
     QApplication app(argc, argv);
 
     // Create window
-    Window window(600, 700, "Title");
+    Window window(600, 700, "Peggle Clone");
 
     return app.exec();
 }

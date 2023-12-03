@@ -19,6 +19,7 @@ class Ball : public BaseEntity {
         setVel(velocity);
         hitByPlayerBall = false;
         isMandatory = false;
+        deleteScheduled = false;
     }
 
     void draw();

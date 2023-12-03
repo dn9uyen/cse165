@@ -3,6 +3,7 @@
 
 #include "OpenGLWidget.h"
 #include <QLabel>
+#include <QPushButton>
 #include <QTimer>
 #include <QtWidgets/qwidget.h>
 
@@ -13,6 +14,8 @@ class Window : public QWidget {
     QLabel *ballCount;
     QLabel *score;
     QLabel *status;
+    QLabel *currentLevel;
+    QPushButton* levels[5];
 
   public:
     Window(int width, int height, const char *title);
