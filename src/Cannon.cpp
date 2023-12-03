@@ -29,9 +29,11 @@ void Cannon::rotate(bool dir) {
 }
 
 void Cannon::draw() {
-    glColor3f(color.x(), color.y(), color.z());
     glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
     glVertexPointer(2, GL_FLOAT, 0, verts);
+    glColorPointer(3, GL_FLOAT, 0, colors);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, indices);
     glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_COLOR_ARRAY);
 }

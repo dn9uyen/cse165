@@ -31,6 +31,7 @@ void Level::update() {
         Ball *ball = dynamic_cast<Ball *>(entity);
         if (ball->getHitStatus() == true && ball->getDeleteScheduled() == false) {
             ball->setDeleteScheduled(true);
+            ball->setColor(ball->getColor() + QVector3D{0.9f, 0.9f, 0.9f});
             QTimer::singleShot(3000, [=] {
                 if (ball->getMandatory() == true) {
                     score += 75;

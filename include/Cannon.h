@@ -17,6 +17,12 @@ class Cannon : public BaseEntity {
     GLubyte indices[6] = {
         0, 1, 2,
         0, 3, 2};
+    GLfloat colors[12] = {
+        0.15f, 0.15f, 0.15f,
+        0.15f, 0.15f, 0.15f,
+        0.4f, 0.4f, 0.4f,
+        0.4f, 0.4f, 0.4f
+    };
 
   public:
     Cannon() {

@@ -11,7 +11,7 @@ class Level1 : public Level {
     Level1() {
         playerBallCount = 5;
 
-        playerBall.setColor({0.7f, 0.7f, 0.7f});
+        playerBall.setColor({0.65f, 0.65f, 0.65f});
 
         // Non mandatory
         entities.push_back(new Ball(0.05, {0.1f, 0.5, 0.7f}, {-0.7f, 0.5f}));

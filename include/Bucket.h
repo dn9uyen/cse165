@@ -17,6 +17,11 @@ class Bucket : public BaseEntity {
     GLubyte indices[6] = {
         0, 1, 2,
         0, 3, 2};
+    GLfloat colors[12] = {
+        0.6f, 0.6f, 0.6f,
+        0.6f, 0.6f, 0.6f,
+        0.3f, 0.3f, 0.3f,
+        0.3f, 0.3f, 0.3f};
 
   public:
     Bucket() {
