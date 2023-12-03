@@ -1,7 +1,8 @@
 #include "../include/Bucket.h"
+#include "../include/Constants.h"
 
 void Bucket::doMovement() {
-    float moveAmount = 0.0025f * (moveDir ? 1 : -1);
+    float moveAmount = bucketSpeed * (moveDir ? 1 : -1);
     for (int i = 0; i < 8; i += 2) {
         verts[i] += moveAmount;
         setPos({verts[0], getPos().y()});

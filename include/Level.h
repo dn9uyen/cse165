@@ -14,6 +14,8 @@
 class Level {
   protected:
     int playerBallCount;
+    int score;
+    int status; // -1=failed, 0=tbd, 1=passed
     PlayerBall playerBall;
     Cannon cannon;
     Bucket bucket;
@@ -22,11 +24,16 @@ class Level {
   public:
     Level() {
         playerBallCount = 1;
+        score = 0;
+        status = 0;
     }
 
     void update();
     void draw();
     void processEvent(QEvent *event);
     int getPlayerBallCount();
+    int getScore();
+    int getStatus();
+    void setStatus(int s);
 };
 #endif

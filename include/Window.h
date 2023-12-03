@@ -12,6 +12,7 @@ class Window : public QWidget {
     OpenGLWidget *openGLWidget;
     QLabel *ballCount;
     QLabel *score;
+    QLabel *status;
 
   public:
     Window(int width, int height, const char *title);

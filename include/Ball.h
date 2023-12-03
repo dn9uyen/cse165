@@ -8,6 +8,8 @@ class Ball : public BaseEntity {
     float radius;
     QVector3D color;
     bool hitByPlayerBall;
+    bool deleteScheduled;
+    bool isMandatory;
 
   public:
     Ball(float rad = 0.05, QVector3D col = {0.0f, 0.0f, 0.0f}, QVector2D position = {0.0f, 0.0f}, QVector2D velocity = {0.0f, 0.0f}) {
@@ -16,6 +18,7 @@ class Ball : public BaseEntity {
         setPos(position);
         setVel(velocity);
         hitByPlayerBall = false;
+        isMandatory = false;
     }
 
     void draw();
@@ -23,6 +26,11 @@ class Ball : public BaseEntity {
     void setRadius(float newRadius);
     void setColor(QVector3D newCol);
     void setHit(bool hit);
+    bool getHitStatus();
+    void setDeleteScheduled(bool b);
+    bool getDeleteScheduled();
+    void setIsMandatory(bool b);
+    bool getMandatory();
 };
 
 #endif

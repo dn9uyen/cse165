@@ -1,5 +1,7 @@
 #include "../include/Level.h"
 #include <QtCore/qdebug.h>
+#include <QtCore/qtimer.h>
+#include <__algorithm/remove_if.h>
 
 void Level::update() {
     bucket.doMovement();
@@ -24,6 +26,32 @@ void Level::update() {
             }
         }
     }
+
+    for (BaseEntity *entity : entities) {
+        Ball *ball = dynamic_cast<Ball *>(entity);
+        if (ball->getHitStatus() == true && ball->getDeleteScheduled() == false) {
+            ball->setDeleteScheduled(true);
+            QTimer::singleShot(3000, [=] {
+                if (ball->getMandatory() == true) {
+                    score += 75;
+                }
+                score += 50;
+                std::erase(entities, entity);
+            });
+        }
+    }
+
+    // Check if pass/fail level
+    for (BaseEntity *entity : entities) {
+        Ball *ball = dynamic_cast<Ball *>(entity);
+        if (ball->getMandatory() == true) {
+            if (playerBallCount == 0 && playerBall.getCannonStatus() == true) {
+                status = -1;
+            }
+            return;
+        }
+    }
+    status = 1;
 }
 
 void Level::draw() {
@@ -59,6 +87,10 @@ void Level::processEvent(QEvent *event) {
     }
 }
 
-int Level::getPlayerBallCount() {
-    return playerBallCount;
-};
+int Level::getPlayerBallCount() { return playerBallCount; };
+
+int Level::getScore() { return score; }
+
+int Level::getStatus() { return status; }
+
+void Level::setStatus(int s) { status = s; }

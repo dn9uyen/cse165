@@ -37,3 +37,12 @@ void Ball::setColor(QVector3D newCol) {
 }
 
 void Ball::setHit(bool hit) { hitByPlayerBall = hit; };
+
+bool Ball::getHitStatus() { return hitByPlayerBall; }
+
+void Ball::setDeleteScheduled(bool b) { deleteScheduled = b; }
+
+bool Ball::getDeleteScheduled() { return deleteScheduled; };
+
+void Ball::setIsMandatory(bool b) { isMandatory = b; }
+bool Ball::getMandatory() { return isMandatory; };

@@ -5,4 +5,6 @@
 #define gravity -0.000005f
 #define restitution 0.9f
 
+#define bucketSpeed 0.003f
+
 #endif

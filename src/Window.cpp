@@ -16,13 +16,18 @@ Window::Window(int width, int height, const char *title) : QWidget(0) {
 
     ballCount = new QLabel(this);
     ballCount->setText("Balls: 000");
-    ballCount->move(250, 610);
+    ballCount->move(100, 610);
     ballCount->show();
 
     score = new QLabel(this);
     score->setText("Score: 00000");
-    score->move(250, 630);
+    score->move(275, 610);
     score->show();
+
+    status = new QLabel(this);
+    status->setText("Status: ..............");
+    status->move(450, 610);
+    status->show();
 
     timer = new QTimer(this);
     QObject::connect(timer, &QTimer::timeout, this, &Window::updateLabels);
@@ -35,7 +40,22 @@ void Window::updateLabels() {
     ballCount->setText(str.c_str());
 
     // Update score
-    score->setText("Score: 9999");
+    str = "Score: " + std::to_string(openGLWidget->getCurrentLevel()->getScore());
+    score->setText(str.c_str());
+
+    // Update status
+    switch (openGLWidget->getCurrentLevel()->getStatus()) {
+    case 0:
+        str = "Status: Playing";
+        break;
+    case -1:
+        str = "Status: Failed";
+        break;
+    case 1:
+        str = "Status: Passed!";
+        break;
+    }
+    status->setText(str.c_str());
 }
 
 OpenGLWidget *Window::getOpenGLWidget() { return openGLWidget; }
