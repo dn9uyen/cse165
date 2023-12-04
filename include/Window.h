@@ -20,6 +20,19 @@ class Window : public QWidget {
   public:
     Window(int width, int height, const char *title);
 
+    ~Window() {
+        delete timer;
+        delete openGLWidget;
+        delete ballCount;
+        delete score;
+        delete status;
+        delete currentLevel;
+        for (auto a : levels) {
+            delete a;
+        }
+        delete[] &levels;
+    }
+
     QWidget *getMainWindow();
     OpenGLWidget *getOpenGLWidget();
     void updateLabels();

@@ -37,7 +37,9 @@ void Level::update() {
                     score += 75;
                 }
                 score += 50;
-                std::erase(entities, entity);
+                if (entity != nullptr) {
+                    std::erase(entities, entity);
+                }
             });
         }
     }

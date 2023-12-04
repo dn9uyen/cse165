@@ -31,6 +31,7 @@ class Level {
     ~Level() {
         for (BaseEntity* entity : entities) {
             delete entity;
+            entity = nullptr;
         }
     }
 

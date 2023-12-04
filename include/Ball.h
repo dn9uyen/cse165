@@ -22,6 +22,8 @@ class Ball : public BaseEntity {
         deleteScheduled = false;
     }
 
+    ~Ball() {}
+
     void draw();
     float getRadius();
     void setRadius(float newRadius);
