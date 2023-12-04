@@ -30,7 +30,6 @@ class Window : public QWidget {
         for (auto a : levels) {
             delete a;
         }
-        delete[] &levels;
     }
 
     QWidget *getMainWindow();
