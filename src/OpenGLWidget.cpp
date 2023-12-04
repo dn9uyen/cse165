@@ -38,7 +38,7 @@ bool OpenGLWidget::eventFilter(QObject *obj, QEvent *event) {
     return false;
 }
 
-Level *OpenGLWidget::getCurrentLevel() { return currentLevel; }
+BaseLevel *OpenGLWidget::getCurrentLevel() { return currentLevel; }
 
 int OpenGLWidget::getCurrentLevelInt() { return currentLevelInt; }
 

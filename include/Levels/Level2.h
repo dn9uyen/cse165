@@ -2,11 +2,11 @@
 #define LEVEL2_H
 
 #include "../BaseEntity.h"
-#include "../Level.h"
+#include "../BaseLevel.h"
 #include "../PlayerBall.h"
 #include <QtCore/qdebug.h>
 
-class Level2 : public Level {
+class Level2 : public BaseLevel {
   public:
     Level2() {
         playerBallCount = 8;

@@ -1,7 +1,7 @@
 #ifndef OPENGL_WIDGET
 #define OPENGL_WIDGET
 
-#include "Level.h"
+#include "BaseLevel.h"
 #include <QEvent>
 #include <QOpenGLFunctions>
 #include <QtCore/qtimer.h>
@@ -10,7 +10,7 @@
 // Manages game state and graphics
 class OpenGLWidget : public QOpenGLWidget, public QOpenGLFunctions {
   private:
-    Level *currentLevel;
+    BaseLevel *currentLevel;
     int currentLevelInt;
 
   public:
@@ -24,7 +24,7 @@ class OpenGLWidget : public QOpenGLWidget, public QOpenGLFunctions {
     void paintGL() override;
     void draw();
     void updateGame();
-    Level *getCurrentLevel();
+    BaseLevel *getCurrentLevel();
     int getCurrentLevelInt();
     void setLevel(int l);
 

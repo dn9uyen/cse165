@@ -2,12 +2,12 @@
 #define LEVEL5_H
 
 #include "../BaseEntity.h"
-#include "../Level.h"
+#include "../BaseLevel.h"
 #include "../PlayerBall.h"
 #include <QtCore/qdebug.h>
 #include <random>
 
-class Level5 : public Level {
+class Level5 : public BaseLevel {
   public:
     Level5() {
 

@@ -1,0 +1,26 @@
+    This is a simple clone of the game Peggle. The game features the core
+mechanics of the game which are the ball cannon, the pegs, the ball basket,
+and levels. The goal of the game is to hit all the required orange pegs
+to beat the level. The blue pegs are optional for extra points. If the ball
+falls in the ball basket, the ball will be returned, if not, it will be lost.
+The basket moves autonomously from side to side. The cannon can be aimed with
+left/right arrow and shot with down arrow. The levels can be picked using the
+buttons at the bottom.
+
+    All the entities in the game are derived from the abstract BaseEntity class.
+For example, PlayerBall inherits from Ball and Ball implements BaseEntity.
+The entities for each level are upcasted to BaseEntity to be stored in a 
+std::vector<BaseEntity*>. Similarly, all the levels in the game are derived 
+from the Level class and upcasted to be stored as a Level*. Although the game 
+only has circular pegs due to time constraint, other peg shapes such as the
+rectangular peg from Peggle could be easily added due to the use of polymorphism
+and object oriented programming in the game logic.
+
+    The graphics are rendered on a QOpenGLWidget using OpenGL functions provided 
+by the Qt OpenGL wrappers. Qt is mostly used for window management and the GUI.
+Qt timers were used extensively to run the game and main game loop. Git was used 
+for version control with regular commits through the entire development process 
+(https://github.com/dn9uyen/cse165).
+
+    The game implements a mostly accurate physics simulation (gravity and 
+inelastic collision) of the ball so it behaves and bounces predictably. 
